@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
 
    def show
       @article = Article.find(params[:id])
+      @comment = Comment.new
+      @comment.article_id = @article.id #Due to the Rails’ mass-assignment protection,
+      # + the article_id attribute of the new Comment object needs to be manually assigned with
+      # + the id of the Article
    end
 
    def new
@@ -14,13 +18,9 @@ class ArticlesController < ApplicationController
    end
 
    def create
-
       @article = Article.new(article_params)
-
       flash.notice = "Article #{@article.title} was created!"
-
       @article.save
-
       redirect_to article_path(@article)
    end
 

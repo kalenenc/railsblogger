@@ -21,12 +21,9 @@
             <%= "Logged in as #{current_user.email}" %> <br />
             <%= link_to "sign someone else up", new_author_path %>
             <%= link_to "(logout)", logout_path %>
-
-
            <% else %>
             Logged out <br />
             <%= link_to "(login)", login_path %>
-   
 
            <% end %>
          </h6>

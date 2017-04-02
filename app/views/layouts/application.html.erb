@@ -18,9 +18,16 @@
          <hr>
          <h6>
            <% if logged_in? %>
-             <%= "Logged in as #{current_user.email}" %>
+            <%= "Logged in as #{current_user.email}" %> <br />
+            <%= link_to "sign someone else up", new_author_path %>
+            <%= link_to "(logout)", logout_path %>
+
+
            <% else %>
-             Logged out
+            Logged out <br />
+            <%= link_to "(login)", login_path %>
+   
+
            <% end %>
          </h6>
        </div>

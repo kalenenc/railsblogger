@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
    include ArticlesHelper #checkout helpers/articles_helper
-
+   before_filter :require_login, except: [:index, :show]
    def index
       @articles = Article.all
    end
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
       @article = Article.new
    end
 
-   
+
 
    def create
       @article = Article.new(article_params)
